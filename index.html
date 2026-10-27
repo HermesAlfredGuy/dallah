@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Brass dallah — from one photograph</title>
+<style>
+  :root{
+    --ink:#f2ede3; --muted:#9a9284; --bg:#14120f; --line:#2b2721; --brass:#c9a559;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font:400 16px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Inter,sans-serif}
+  #stage{position:fixed;inset:0}
+  #stage canvas{display:block;width:100%;height:100%}
+  .veil{position:fixed;inset:0;pointer-events:none;
+    background:radial-gradient(120% 80% at 62% 45%,transparent 30%,rgba(20,18,15,.55) 100%)}
+  header{position:fixed;top:0;left:0;right:0;padding:28px 32px;display:flex;gap:24px;
+    align-items:baseline;justify-content:space-between;pointer-events:none}
+  .brand{font:600 13px/1 ui-sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6b5320}
+  .brand span{color:#5f574a;letter-spacing:.06em;text-transform:none;font-weight:400;
+    display:block;margin-top:6px;font-size:12px}
+  nav{display:flex;gap:18px;font-size:12.5px;letter-spacing:.04em;color:#403a31;
+    background:rgba(255,255,255,.62);backdrop-filter:blur(8px);padding:9px 14px;border-radius:999px}
+  nav a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+  nav a:hover{color:#111;border-color:#8a6a2a}
+  .panel{position:fixed;left:32px;bottom:32px;width:min(430px,calc(100vw - 64px));
+    background:rgba(20,18,15,.78);backdrop-filter:blur(14px);
+    border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px}
+  .panel h1{margin:0 0 6px;font-size:23px;line-height:1.2;letter-spacing:-.01em;font-weight:600}
+  .panel p{margin:0;color:var(--muted);font-size:13.5px}
+  .panel .ref{display:flex;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);
+    align-items:center}
+  .panel .ref img{width:64px;height:64px;object-fit:cover;border-radius:8px;
+    border:1px solid var(--line);background:#fff}
+  .panel .ref div{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .panel .ref strong{display:block;color:var(--ink);font-size:12.5px;margin-bottom:3px;font-weight:600}
+  .facts{position:fixed;right:32px;bottom:32px;display:grid;gap:10px;text-align:right;
+    font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#5f574a}
+  .facts b{display:block;font:600 19px/1.1 ui-sans-serif;letter-spacing:0;text-transform:none;
+    color:#161310}
+  .hint{position:fixed;left:50%;top:calc(50% + 220px);transform:translateX(-50%);
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#3f3930;
+    animation:fade 4s ease 2s forwards;pointer-events:none}
+  @keyframes fade{to{opacity:0}}
+  @media (max-width:820px){
+    header{padding:18px}
+    nav{display:none}
+    .panel{left:16px;right:16px;bottom:16px;width:auto;padding:18px}
+    .facts{display:none}
+    .hint{display:none}
+    .panel h1{font-size:19px}
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div class="veil"></div>
+
+<header>
+  <div class="brand">img2threejs<span>one photograph → a procedural Three.js object</span></div>
+  <nav>
+    <a href="#what">What it did</a>
+    <a href="#stopped">Where it stopped</a>
+    <a href="#bugs">Bugs found</a>
+  </nav>
+</header>
+
+<div class="panel" id="what">
+  <h1>Brass dallah, rebuilt from a single plate</h1>
+  <p>No model file, no photogrammetry, no image textures on the finish: a 3174×3539 CC0 photograph,
+     measured, turned into an ObjectSculptSpec, and generated as lathe and sweep geometry.</p>
+  <div class="ref">
+    <img src="reference.jpg" alt="the reference photograph" />
+    <div><strong>Reference</strong>Dallah Syria, Wikimedia Commons, CC0. Brass colour and roughness
+      sampled from it; the extracted maps were re-graded because de-lighting collapsed the metal to olive.</div>
+  </div>
+</div>
+
+<div class="facts">
+  <div><b>10</b> components</div>
+  <div><b>0</b> image textures</div>
+  <div><b>2</b> primitives</div>
+</div>
+
+<div class="hint">drag to orbit</div>
+
+<script type="module" src="bundle.js"></script>
+</body>
+</html>
